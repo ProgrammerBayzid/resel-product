@@ -1,0 +1,182 @@
+[
+    {
+        "categoryName": "IPhone",
+        "rating": {
+            "number": 4.5,
+            "badge": "Excellent"
+        },
+        "total_view": 488,
+        "name": "Iphone 11 pro max",
+        "location": "Barishal",
+        "published_date": "2022-08-24 17:27:34",
+        "resale-price": 44000,
+        "original-price": 70000,
+        "use": "1 year",
+        "author": {
+            "name": "Jimmy Dane",
+            "img": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"
+        },
+        "image_url": "https://i.ibb.co/M23fhxm/unsplash-Eh-Tc-C9s-YXsw.png",
+        "details": "Wednesday, August 24, 2022 | Tag Cloud Tags: Biden, EU, Euro, Europe, Joe Biden, Military, News, Russia, Security, UK, Ukraine, United States, Worthy News (Worthy News)"
+    },
+    {
+        "categoryName": "IPhone",
+        "rating": {
+            "number": 4.5,
+            "badge": "Excellent"
+        },
+        "total_view": 488,
+        "name": "Iphone 13 pro max",
+        "location": "Barishal",
+        "published_date": "2022-08-24 17:27:34",
+        "resale-price": 44000,
+        "original-price": 70000,
+        "use": "1 year",
+        "author": {
+            "name": "Jimmy Dane",
+            "img": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"
+        },
+        "image_url": "https://i.ibb.co/M23fhxm/unsplash-Eh-Tc-C9s-YXsw.png",
+        "details": "Wednesday, August 24, 2022 | Tag Cloud Tags: Biden, EU, Euro, Europe, Joe Biden, Military, News, Russia, Security, UK, Ukraine, United States, Worthy News (Worthy News)"
+    },
+    {
+        "categoryName": "IPhone",
+        "rating": {
+            "number": 4.5,
+            "badge": "Excellent"
+        },
+        "total_view": 488,
+        "name": "Iphone 12 pro max",
+        "location": "Barishal",
+        "published_date": "2022-08-24 17:27:34",
+        "resale-price": 44000,
+        "original-price": 70000,
+        "use": "1 year",
+        "author": {
+            "name": "Jimmy Dane",
+            "img": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"
+        },
+        "image_url": "https://i.ibb.co/M23fhxm/unsplash-Eh-Tc-C9s-YXsw.png",
+        "details": "Wednesday, August 24, 2022 | Tag Cloud Tags: Biden, EU, Euro, Europe, Joe Biden, Military, News, Russia, Security, UK, Ukraine, United States, Worthy News (Worthy News)"
+    },
+    {
+        "categoryName": "Samsung",
+        "rating": {
+            "number": 4.5,
+            "badge": "Excellent"
+        },
+        "total_view": 488,
+        "name": "Samsung 12 pro max",
+        "location": "Barishal",
+        "published_date": "2022-08-24 17:27:34",
+        "resale-price": 44000,
+        "original-price": 70000,
+        "use": "1 year",
+        "author": {
+            "name": "Jimmy Dane",
+            "img": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"
+        },
+        "image_url": "https://i.ibb.co/M23fhxm/unsplash-Eh-Tc-C9s-YXsw.png",
+        "details": "Wednesday, August 24, 2022 | Tag Cloud Tags: Biden, EU, Euro, Europe, Joe Biden, Military, News, Russia, Security, UK, Ukraine, United States, Worthy News (Worthy News)"
+    },
+    {
+        "categoryName": "Samsung",
+        "rating": {
+            "number": 4.5,
+            "badge": "Excellent"
+        },
+        "total_view": 488,
+        "name": "Samsung 11 pro max",
+        "location": "Barishal",
+        "published_date": "2022-08-24 17:27:34",
+        "resale-price": 44000,
+        "original-price": 70000,
+        "use": "1 year",
+        "author": {
+            "name": "Jimmy Dane",
+            "img": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"
+        },
+        "image_url": "https://i.ibb.co/M23fhxm/unsplash-Eh-Tc-C9s-YXsw.png",
+        "details": "Wednesday, August 24, 2022 | Tag Cloud Tags: Biden, EU, Euro, Europe, Joe Biden, Military, News, Russia, Security, UK, Ukraine, United States, Worthy News (Worthy News)"
+    },
+    {
+        "categoryName": "Samsung",
+        "rating": {
+            "number": 4.5,
+            "badge": "Excellent"
+        },
+        "total_view": 488,
+        "name": "Samsung 10 pro max",
+        "location": "Barishal",
+        "published_date": "2022-08-24 17:27:34",
+        "resale-price": 44000,
+        "original-price": 70000,
+        "use": "1 year",
+        "author": {
+            "name": "Jimmy Dane",
+            "img": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"
+        },
+        "image_url": "https://i.ibb.co/M23fhxm/unsplash-Eh-Tc-C9s-YXsw.png",
+        "details": "Wednesday, August 24, 2022 | Tag Cloud Tags: Biden, EU, Euro, Europe, Joe Biden, Military, News, Russia, Security, UK, Ukraine, United States, Worthy News (Worthy News)"
+    },
+    {
+        "categoryName": "1+",
+        "rating": {
+            "number": 4.5,
+            "badge": "Excellent"
+        },
+        "total_view": 488,
+        "name": "1+ 10 pro max",
+        "location": "Barishal",
+        "published_date": "2022-08-24 17:27:34",
+        "resale-price": 44000,
+        "original-price": 70000,
+        "use": "1 year",
+        "author": {
+            "name": "Jimmy Dane",
+            "img": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"
+        },
+        "image_url": "https://i.ibb.co/M23fhxm/unsplash-Eh-Tc-C9s-YXsw.png",
+        "details": "Wednesday, August 24, 2022 | Tag Cloud Tags: Biden, EU, Euro, Europe, Joe Biden, Military, News, Russia, Security, UK, Ukraine, United States, Worthy News (Worthy News)"
+    },
+    {
+        "categoryName": "1+",
+        "rating": {
+            "number": 4.5,
+            "badge": "Excellent"
+        },
+        "total_view": 488,
+        "name": "1+ 12 pro max",
+        "location": "Barishal",
+        "published_date": "2022-08-24 17:27:34",
+        "resale-price": 44000,
+        "original-price": 70000,
+        "use": "1 year",
+        "author": {
+            "name": "Jimmy Dane",
+            "img": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"
+        },
+        "image_url": "https://i.ibb.co/M23fhxm/unsplash-Eh-Tc-C9s-YXsw.png",
+        "details": "Wednesday, August 24, 2022 | Tag Cloud Tags: Biden, EU, Euro, Europe, Joe Biden, Military, News, Russia, Security, UK, Ukraine, United States, Worthy News (Worthy News)"
+    },
+    {
+        "categoryName": "1+",
+        "rating": {
+            "number": 4.5,
+            "badge": "Excellent"
+        },
+        "total_view": 488,
+        "name": "1+ 11 pro max",
+        "location": "Barishal",
+        "published_date": "2022-08-24 17:27:34",
+        "resale-price": 44000,
+        "original-price": 70000,
+        "use": "1 year",
+        "author": {
+            "name": "Jimmy Dane",
+            "img": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80"
+        },
+        "image_url": "https://i.ibb.co/M23fhxm/unsplash-Eh-Tc-C9s-YXsw.png",
+        "details": "Wednesday, August 24, 2022 | Tag Cloud Tags: Biden, EU, Euro, Europe, Joe Biden, Military, News, Russia, Security, UK, Ukraine, United States, Worthy News (Worthy News)"
+    }
+]
