@@ -18,11 +18,13 @@ import Contactus from "../Components/Pages/Contactus";
 import AdminRoute from "../PrivetRoute/AdminRoute";
 import Profile from "../Components/Pages/Profile";
 import SellerPrivet from "../PrivetRoute/SellerPrivet";
+import ErrorPage from "../Components/ErrorPage/ErrorPage";
 
 export const route = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -77,6 +79,7 @@ export const route = createBrowserRouter([
     {
         path: '/dashboard',
         element: <PrivetRoute><DashboardLayout></DashboardLayout></PrivetRoute>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/dashboard',
