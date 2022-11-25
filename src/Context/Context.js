@@ -72,6 +72,23 @@ const Context = ({ children }) => {
     }, [])
 
 
+    // useEffect(() => {
+
+    //     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+    //         if (currentUser) {
+    //             fetch(`http://localhost:5000/user?email=${currentUser.email}`)
+    //                 .then(res => res.json())
+    //                 .then(data => {
+    //                     data.uid = currentUser.uid
+    //                     setUser(data)
+    //                     setLoding(false);
+    //                 })
+    //         }
+    //     })
+    //     return () => unSubscribe()
+    // }, [])
+
+
 
     const authInfo = { user, loding, createUser, githubSingIn, updateName, verifyEmail, login, googleSignin, logOut, forgetPassword }
 

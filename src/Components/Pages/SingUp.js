@@ -31,6 +31,7 @@ const SingUp = () => {
                     .then(result => {
                         const user = result.user;
                         toast.success('User Created Successfully.')
+                        navigate('/')
                         const userInfo = {
                             displayName: data.name,
                         }
@@ -41,7 +42,7 @@ const SingUp = () => {
                             .catch((error) => {
                                 toast.error(error.massage)
                             });
-                        handelEmailVeryfi()
+                        // handelEmailVeryfi()
                     })
                     .catch(error => {
                         console.log(error)
@@ -57,15 +58,15 @@ const SingUp = () => {
 
 
 
-    const handelEmailVeryfi = () => {
-        verifyEmail()
-            .then(() => {
-                toast.success('Verify Your Email')
-            })
-            .catch(error => {
-                toast.error(error.massage)
-            })
-    };
+    // const handelEmailVeryfi = () => {
+    //     verifyEmail()
+    //         .then(() => {
+    //             toast.success('Verify Your Email')
+    //         })
+    //         .catch(error => {
+    //             toast.error(error.massage)
+    //         })
+    // };
 
     const saveUser = (name, email, designation, photoURL) => {
         const user = { name, email, designation, photoURL };
