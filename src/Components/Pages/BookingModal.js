@@ -5,7 +5,7 @@ import { setAuthToken } from '../../useToken/useToken';
 
 const BookingModal = ({ productName, setProductName }) => {
     const { user } = useContext(AuthContext);
-    const { phoneName, resalePrice, condition } = productName;
+    const { phoneName, resalePrice, condition, image } = productName;
 
 
 
@@ -23,8 +23,9 @@ const BookingModal = ({ productName, setProductName }) => {
             peoductName: phoneName,
             price: resalePrice,
             condition,
+            image,
             number,
-            meetLocation
+            meetLocation,
         }
         fetch('http://localhost:5000/bookings', {
             method: 'POST',
@@ -62,6 +63,7 @@ const BookingModal = ({ productName, setProductName }) => {
             <div className="modal">
                 <div className="modal-box relative">
                     <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <img className='w-24' src={image} alt="" srcset="" />
                     <h3 className="text-lg font-bold">{phoneName}</h3>
                     <h3 className="text-lg font-bold">Price: {resalePrice}</h3>
                     <h3 className="text-lg font-bold">Condition: {condition}</h3>

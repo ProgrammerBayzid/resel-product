@@ -51,6 +51,7 @@ const MyOrders = () => {
                     <thead>
                         <tr>
                             <th></th>
+                            <th>Image</th>
 
                             <th>Name</th>
                             <th>Price</th>
@@ -65,6 +66,11 @@ const MyOrders = () => {
 
 
                                 <th>{i + 1}</th>
+                                <th>{booking?.image ?
+                                    <img className='w-20 rounded-full' src={booking.image} alt="" />
+                                    :
+                                    <p>no photo</p>
+                                }</th>
                                 <th>{
                                     booking.peoductName
                                 }</th>
