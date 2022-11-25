@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/Context'
 import ConfirmationModal from './ConfirmationModal';
@@ -77,7 +78,17 @@ const MyOrders = () => {
                                 <th>{
                                     booking.price
                                 }</th>
-                                <th></th>
+                                <th>{
+                                    booking.price && !booking.paid &&
+                                    <Link to={`/dashboard/payment/${booking._id}`}> <button className='btn '>Pay</button></Link>
+
+                                }
+                                    {
+                                        booking.price && booking.paid &&
+                                        <span className=' '>Paid</span>
+
+                                    }
+                                </th>
                                 <td>
                                     <label onClick={() => setDeletingOrder(booking)} htmlFor="confirmation-modal" className="btn btn-sm btn-error">Delete</label>
                                 </td>

@@ -19,6 +19,7 @@ import AdminRoute from "../PrivetRoute/AdminRoute";
 import Profile from "../Components/Pages/Profile";
 import SellerPrivet from "../PrivetRoute/SellerPrivet";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
+import Payment from "../Components/Dashboard/Payment/Payment";
 
 export const route = createBrowserRouter([
     {
@@ -88,6 +89,11 @@ export const route = createBrowserRouter([
             {
                 path: '/dashboard/myorders',
                 element: <MyOrders></MyOrders>
+            },
+            {
+                path: '/dashboard/payment/:paymentId',
+                element: <Payment></Payment>,
+                loader: ({ params }) => fetch(`http://localhost:5000/paybooking/${params.paymentId}`)
             },
             {
                 path: '/dashboard/myproducts',
