@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Google from './SocialLogin.js/Google';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/Context';
+import { setAuthToken } from '../../useToken/useToken';
 
 
 const Login = () => {
@@ -24,6 +25,7 @@ const Login = () => {
             .then((res) => {
                 setemailError('')
                 setLoginError('')
+                setAuthToken(data.email);
                 navigate(from, { replace: true })
                 toast.success('Login Success')
 
@@ -70,7 +72,7 @@ const Login = () => {
                                 required: "Password is required",
                                 minLength: { value: 6, message: 'Password must be 6 characters or longer' }
                             })}
-                            placeholder="Email" className="input input-bordered w-full max-w-xs" />
+                            placeholder="Password" className="input input-bordered w-full max-w-xs" />
                     </div>
                     <p className='text-red-500	'>{loginError}</p>
                     <label className="label"> <button onClick={forgetPass} className="label-text">Forget Password?</button></label>

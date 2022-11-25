@@ -42,6 +42,7 @@ const Context = ({ children }) => {
     // 5. logOut
     const logOut = () => {
         setLoding(true);
+        localStorage.removeItem('token');
         return signOut(auth)
     }
     // 6. login 
@@ -61,8 +62,6 @@ const Context = ({ children }) => {
     }
 
 
-
-
     useEffect(() => {
 
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -71,6 +70,8 @@ const Context = ({ children }) => {
         })
         return () => unSubscribe()
     }, [])
+
+
 
     const authInfo = { user, loding, createUser, githubSingIn, updateName, verifyEmail, login, googleSignin, logOut, forgetPassword }
 
@@ -82,3 +83,27 @@ const Context = ({ children }) => {
 }
 
 export default Context
+
+
+
+
+
+
+
+
+
+// useEffect(() => {
+
+//     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+//         if (currentUser) {
+//             fetch(`http://localhost:5000/user?email=${currentUser.email}`)
+//                 .then(res => res.json())
+//                 .then(data => {
+//                     data.uid = currentUser.uid
+//                     setUser(data)
+//                 })
+//         }
+//         setLoding(false);
+//     })
+//     return () => unSubscribe()
+// }, [])

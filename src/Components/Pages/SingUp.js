@@ -4,6 +4,8 @@ import { FaGoogle } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/Context';
+import { setAuthToken } from '../../useToken/useToken';
+import Google from './SocialLogin.js/Google';
 
 const SingUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -14,27 +16,42 @@ const SingUp = () => {
 
 
     const handleSignUp = (data) => {
-        console.log(data);
-        setSignUPError('');
-        createUser(data.email, data.password, data.role)
-            .then(result => {
-                const user = result.user;
-                toast.success('User Created Successfully.')
-                const userInfo = {
-                    displayName: data.name,
-                }
-                updateName(userInfo)
-                    .then(() => {
-                        saveUser(data.name, data.email, data.role)
+        const photoURL = data.photoURL[0];
+        const formData = new FormData();
+        formData.append('photoURL', photoURL);
+        const url = 'https://api.imgbb.com/1/upload?key=0b3b07ced3b8cca094271a552e8192ff'
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(imageData => {
+                setSignUPError('');
+                createUser(data.email, data.password, data.designation,)
+                    .then(result => {
+                        const user = result.user;
+                        toast.success('User Created Successfully.')
+                        const userInfo = {
+                            displayName: data.name,
+                        }
+                        updateName(userInfo)
+                            .then(() => {
+                                saveUser(data.name, data.email, data.designation, imageData.data.photoURL.url)
+                            })
+                            .catch((error) => {
+                                toast.error(error.massage)
+                            });
+                        handelEmailVeryfi()
                     })
-                    .catch((error) => {
-                        toast.error(error.massage)
+                    .catch(error => {
+                        console.log(error)
+                        setSignUPError(error.message)
                     });
-                handelEmailVeryfi()
             })
+
             .catch(error => {
                 console.log(error)
-                setSignUPError(error.message)
+
             });
     };
 
@@ -50,8 +67,8 @@ const SingUp = () => {
             })
     };
 
-    const saveUser = (name, email, role) => {
-        const user = { name, email, role };
+    const saveUser = (name, email, designation, photoURL) => {
+        const user = { name, email, designation, photoURL };
         fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
@@ -61,6 +78,7 @@ const SingUp = () => {
         })
             .then(res => res.json())
             .then(data => {
+                setAuthToken(email)
                 navigate('/');
             })
     };
@@ -89,6 +107,13 @@ const SingUp = () => {
                         {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
                     </div>
                     <div className="form-control w-full max-w-xs">
+                        <label className="label"> <span className="label-text">Photo</span></label>
+                        <input type="file" {...register("photoURL", {
+                            required: "Photo is Required"
+                        })} className="input input-bordered w-full max-w-xs" />
+                        {errors.img && <p className='text-red-500'>{errors.img.message}</p>}
+                    </div>
+                    <div className="form-control w-full max-w-xs">
                         <label className="label"> <span className="label-text">Password</span></label>
                         <input type="password" {...register("password", {
                             required: "Password is required",
@@ -97,7 +122,7 @@ const SingUp = () => {
                         })} className="input input-bordered w-full max-w-xs" />
                         <label className="label"> <span className="label-text">Please selected a role</span></label>
                         <select
-                            type="text" {...register("role", {
+                            type="text" {...register("designation", {
                                 required: "Its rwquires",
                             })}
                             className="select select-bordered w-full max-w-xs">
@@ -110,7 +135,8 @@ const SingUp = () => {
                 </form>
                 <p>Already have an account <Link className='text-secondary' to="/login">Please Login</Link></p>
                 <div className="divider">OR</div>
-                <button className='btn btn-outline w-full gap-2'><FaGoogle /> CONTINUE WITH GOOGLE</button>
+                <Google></Google>
+
 
             </div>
         </div>

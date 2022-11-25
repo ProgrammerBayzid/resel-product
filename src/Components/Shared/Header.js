@@ -19,11 +19,11 @@ const Header = () => {
     }
 
     const menuItems = <>
-        <li className='text-white'><Link to=''> Home</Link></li>
-        <li className='text-white'><Link to=''> About</Link></li>
-        <li className='text-white'><Link to=''> Appoinment</Link></li>
-        <li className='text-white'><Link to=''> Contacts Us</Link></li>
-        <li className='text-white'><Link to=''> Dashboard</Link></li>
+        <li className='text-white'><Link to='/home'> Home</Link></li>
+        <li className='text-white'><Link to='/blog'> Blog</Link></li>
+        <li className='text-white'><Link to='/catagory'> Category</Link></li>
+        <li className='text-white'><Link to='/contactsus'> Contacts Us</Link></li>
+        <li className='text-white'><Link to='/dashboard'> Dashboard</Link></li>
         {user?.uid ?
             <div className='lg:flex items-center'>
                 <li><Link to='/profile'>
@@ -64,7 +64,7 @@ const Header = () => {
                             {menuItems}
                         </ul>
                     </div>
-                    <Link to='/' className="text-white btn btn-ghost normal-case text-xl">Doctors Portal</Link>
+                    <Link to='/' className="text-white btn btn-ghost normal-case text-xl">Recondition Phones</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex ">
                     <ul className="menu menu-horizontal p-0  gap-2">
