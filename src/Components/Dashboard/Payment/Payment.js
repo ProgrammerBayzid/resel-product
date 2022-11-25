@@ -1,7 +1,8 @@
 import React from 'react'
 import { loadStripe } from '@stripe/stripe-js';
-
+import { Elements } from '@stripe/react-stripe-js';
 import { useLoaderData, useNavigation } from 'react-router-dom';
+import CheckoutForm from './CheckoutForm';
 
 
 
@@ -13,9 +14,23 @@ const Payment = () => {
     const data = useLoaderData();
     const { peoductName, price } = data;
     const navigation = useNavigation();
+
+    if (navigation.state === "loading") {
+        return <Spinner></Spinner>
+    }
+
     return (
         <div>
-            <h1>{peoductName}</h1>
+            <p className='text-3xl font-bold'>Payment for {peoductName}</p>
+            <p className='text-xl '> Please pay <span className='font-bold'> ${price} </span></p>
+
+            <div className='w-96 my-12'>
+                <Elements stripe={stripePromise}>
+                    <CheckoutForm
+                        data={data}
+                    />
+                </Elements>
+            </div>
         </div>
     )
 }
