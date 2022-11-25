@@ -57,6 +57,7 @@ const MyOrders = () => {
                             <th>Name</th>
                             <th>Price</th>
                             <th>Payment</th>
+                            <th>Transaction-Id</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -78,6 +79,7 @@ const MyOrders = () => {
                                 <th>{
                                     booking.price
                                 }</th>
+
                                 <th>{
                                     booking.price && !booking.paid &&
                                     <Link to={`/dashboard/payment/${booking._id}`}> <button className='btn '>Pay</button></Link>
@@ -89,9 +91,11 @@ const MyOrders = () => {
 
                                     }
                                 </th>
-                                <td>
+                                <th>{booking.transactionId}</th>
+
+                                <th>
                                     <label onClick={() => setDeletingOrder(booking)} htmlFor="confirmation-modal" className="btn btn-sm btn-error">Delete</label>
-                                </td>
+                                </th>
 
 
                             </tr>

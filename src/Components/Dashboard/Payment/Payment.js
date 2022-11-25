@@ -3,6 +3,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import { useLoaderData, useNavigation } from 'react-router-dom';
 import CheckoutForm from './CheckoutForm';
+import Spinner from '../../Pages/Spinner';
 
 
 
