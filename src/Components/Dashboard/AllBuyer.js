@@ -3,21 +3,20 @@ import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 import DeleteConfirmModal from './DeleteConfirmModal';
 
-const AllSaller = () => {
+const AllBuyer = () => {
 
-
-    const [deletingSeller, setDeletingSeller] = useState(null);
+    const [deletingBuyer, setDeletingBuyer] = useState(null);
 
     const closeModal = () => {
-        setDeletingSeller(null);
+        setDeletingBuyer(null);
     };
 
 
 
-    const { data: sellers = [], refetch } = useQuery({
-        queryKey: ['sellers'],
+    const { data: buyers = [], refetch } = useQuery({
+        queryKey: ['buyers'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/allseller?role=Seller')
+            const res = await fetch('http://localhost:5000/allseller?role=Buyer')
             const data = await res.json();
             return data;
         }
@@ -25,26 +24,8 @@ const AllSaller = () => {
 
 
 
-
-    const handelMakeVerifide = id => {
-        fetch(`http://localhost:5000/allseller/${id}`, {
-            method: 'PUT',
-            headers: {
-                authorization: `bearer ${localStorage.getItem('token')}`
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.modifiedCount > 0) {
-                    toast.success('Make Verifiy Successful.');
-                    refetch();
-                }
-            })
-    };
-
-
-    const handleDeleteUser = seller => {
-        fetch(`http://localhost:5000/user/${seller._id}`, {
+    const handleDeleteUser = buyer => {
+        fetch(`http://localhost:5000/user/${buyer._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`
@@ -54,10 +35,12 @@ const AllSaller = () => {
             .then(data => {
                 if (data.deletedCount > 0) {
                     refetch();
-                    toast.success(` ${seller.name} deleted successfully`)
+                    toast.success(` ${buyer.name} deleted successfully`)
                 }
             })
     };
+
+
 
 
 
@@ -79,14 +62,13 @@ const AllSaller = () => {
                     <tbody>
 
                         {
-                            sellers.map((seller, i) => <tr key={seller._id}>
+                            buyers.map((buyer, i) => <tr key={buyer._id}>
                                 <th>{i + 1}</th>
-                                <td>{seller.name}</td>
-                                <td>{seller.email}</td>
-                                <td>{seller?.verified !== true && <button onClick={() => handelMakeVerifide(seller._id)} className='btn btn-xs btn-primary'>Make Verify</button>}</td>
-                                <td>{seller?.designation}</td>
+                                <td>{buyer.name}</td>
+                                <td>{buyer.email}</td>
+                                <td>{buyer?.designation}</td>
                                 <td>
-                                    <label onClick={() => setDeletingSeller(seller)} htmlFor="confirmation-modal" className="btn btn-sm btn-error">Delete</label>
+                                    <label onClick={() => setDeletingBuyer(buyer)} htmlFor="confirmation-modal" className="btn btn-sm btn-error">Delete</label>
                                 </td>
                             </tr>)
                         }
@@ -94,14 +76,14 @@ const AllSaller = () => {
                 </table>
             </div>
             {
-                deletingSeller &&
+                deletingBuyer &&
 
                 <DeleteConfirmModal
                     title={`Are you sure you want to delete?`}
-                    message={`If you delete ${deletingSeller.DisplayName}. It cannot be undone.`}
+                    message={`If you delete ${deletingBuyer.DisplayName}. It cannot be undone.`}
                     successAction={handleDeleteUser}
                     successButtonName="Delete"
-                    modalData={deletingSeller}
+                    modalData={deletingBuyer}
                     closeModal={closeModal}
 
                 >
@@ -111,4 +93,4 @@ const AllSaller = () => {
     )
 }
 
-export default AllSaller
+export default AllBuyer

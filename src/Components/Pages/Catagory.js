@@ -11,19 +11,18 @@ const Catagory = () => {
 
 
     return (
-        <div>
-            <h1 className='text-center'>Brand Catagory</h1>
+        <div className='mt-16'>
+            <h1 className='text-center text-4xl font-bold mb-10'>Brand Category</h1>
 
             <div className='grid lg:grid-cols-3 mx-auto lg:ml-20 sm:ml-32 gap-5'>
                 {
                     catagoryName.map(catagory =>
 
-                        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md">
-                            <h1>Brand Name: {catagory.name}</h1>
-
-                            <h4>If You want to see all Products of this Brand. </h4>
-                            <Link to={`/catagory/Products/${catagory.name}`}>  <button className="btn btn-primary">See All Product Of This Brand</button></Link>
-
+                        <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md">
+                            <h1 className='text-center text-xl font-bold'>Brand Name: {catagory.name}</h1>
+                            <div className='mt-5  grid justify-items-center'>
+                                <Link to={`/catagory/Products/${catagory.name}`}>  <button className="btn bg-indigo-500 text-white">See All Phones Of This Brand</button></Link>
+                            </div>
                         </div>
 
 

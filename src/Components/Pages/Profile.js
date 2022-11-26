@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/Context'
+import { GoVerified } from 'react-icons/go'
 
 const Profile = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -18,8 +19,8 @@ const Profile = () => {
     }
     return (
 
-        <div className="hero min-h-screen bg-base-200">
-            <div className="hero-content flex-col lg:flex-col">
+        <div className="hero min-h-screen bg-base-200 rounded">
+            <div className="hero-content bg-blue-300 p-10 rounded flex-col lg:flex-col">
                 <div className='w-24 items-center '>
                     <span className='rounded-full'>
                         {user?.photoURL ?
@@ -29,11 +30,16 @@ const Profile = () => {
                     </span>
                 </div>
                 <div>
-                    <h1 className="text-3xl font-bold sm:text-center">Name: {user?.displayName ? user.displayName : 'Name Not Found'}</h1>
-                    <p>Email: {user?.email}</p>
-                    <p>ID: {user?.uid} </p>
-                    <p> Email Status: {user?.emailVerified ? <span className=''>Verified</span> : <span className=''>Not Verified</span>} </p>
-                    <button onClick={handelLogOut} className="btn btn-primary">Log Out</button>
+                    <h1 className="text-3xl font-bold sm:text-center mb-2 flex items-center gap-5">Name: {user?.displayName ? user.displayName : 'Name Not Found'}{user?.verified && <span><GoVerified></GoVerified></span>}
+                    </h1>
+                    <p className='text-center mb-2 text-xl'>Email: {user?.email}</p>
+                    <p className='text-center mb-2 text-xl'>ID: {user?.uid} </p>
+                    <p className='text-center text-xl'> Email Status: {user?.emailVerified ? <span className=''>Verified</span> : <span className=''>Not Verified</span>} </p>
+                    <div className='grid justify-items-center mt-5'>
+                        <button onClick={handelLogOut} className="btn btn-small bg-indigo-500 text-white">Log Out</button>
+
+                    </div>
+
                 </div>
             </div>
         </div>

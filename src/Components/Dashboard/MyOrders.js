@@ -48,12 +48,11 @@ const MyOrders = () => {
         <div className='mt-10 w-full'>
             <h1 className='text-3xl font-semibold mb-5'>My Orders</h1>
             <div className='overflow-x-auto'>
-                <table className="table w-full ">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th></th>
                             <th>Image</th>
-
                             <th>Name</th>
                             <th>Price</th>
                             <th>Payment</th>
@@ -96,8 +95,6 @@ const MyOrders = () => {
                                 <th>
                                     <label onClick={() => setDeletingOrder(booking)} htmlFor="confirmation-modal" className="btn btn-sm btn-error">Delete</label>
                                 </th>
-
-
                             </tr>
                             )
                         }

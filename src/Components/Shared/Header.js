@@ -34,13 +34,13 @@ const Header = () => {
                         <p className='text-white'>Profile</p>}
 
                 </Link></li>
-                <button className='text-white' onClick={handelLogOut}> Log Out</button>
+                <button className='text-white mr-3' onClick={handelLogOut}> Log Out</button>
 
             </div>
             :
             <>
                 <li className='text-white'><Link to='/login'> Login</Link></li>
-                <li className='text-white'><Link to='/singUp'> Sing Up</Link></li>
+                <li className='text-white '><Link to='/singUp'> Sing Up</Link></li>
             </>}
 
 

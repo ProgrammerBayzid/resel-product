@@ -33,11 +33,11 @@ const SingUp = () => {
                         toast.success('User Created Successfully.')
                         navigate('/')
                         const userInfo = {
-                            displayName: data.name,
+                            displayName: data.displayName,
                         }
                         updateName(userInfo)
                             .then(() => {
-                                saveUser(data.name, data.email, data.designation, imageData.data.photoURL.url)
+                                saveUser(data.displayName, data.email, data.designation, imageData.data.photoURL.url)
                             })
                             .catch((error) => {
                                 toast.error(error.massage)
@@ -68,8 +68,8 @@ const SingUp = () => {
     //         })
     // };
 
-    const saveUser = (name, email, designation, photoURL) => {
-        const user = { name, email, designation, photoURL };
+    const saveUser = (displayName, email, designation, photoURL) => {
+        const user = { displayName, email, designation, photoURL };
         fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
@@ -95,7 +95,7 @@ const SingUp = () => {
                 <form onSubmit={handleSubmit(handleSignUp)}>
                     <div className="form-control w-full max-w-xs">
                         <label className="label"> <span className="label-text">Name</span></label>
-                        <input type="text" {...register("name", {
+                        <input type="text" {...register("displayName", {
                             required: "Name is Required"
                         })} className="input input-bordered w-full max-w-xs" />
                         {errors.name && <p className='text-red-500'>{errors.name.message}</p>}

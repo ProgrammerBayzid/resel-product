@@ -62,31 +62,35 @@ const Context = ({ children }) => {
     }
 
 
-    useEffect(() => {
-
-        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser)
-            setLoding(false);
-        })
-        return () => unSubscribe()
-    }, [])
-
-
     // useEffect(() => {
 
     //     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-    //         if (currentUser) {
-    //             fetch(`http://localhost:5000/user?email=${currentUser.email}`)
-    //                 .then(res => res.json())
-    //                 .then(data => {
-    //                     data.uid = currentUser.uid
-    //                     setUser(data)
-    //                     setLoding(false);
-    //                 })
-    //         }
+    //         setUser(currentUser)
+    //         setLoding(false);
     //     })
     //     return () => unSubscribe()
     // }, [])
+
+
+    useEffect(() => {
+
+        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+            if (currentUser) {
+                fetch(`http://localhost:5000/user?email=${currentUser.email}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        data.uid = currentUser.uid
+                        setUser(data)
+                        setLoding(false);
+                    })
+            }
+            else {
+                setUser(null)
+                setLoding(false);
+            }
+        })
+        return () => unSubscribe();
+    }, [])
 
 
 

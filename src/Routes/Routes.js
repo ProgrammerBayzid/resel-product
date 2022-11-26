@@ -20,6 +20,7 @@ import Profile from "../Components/Pages/Profile";
 import SellerPrivet from "../PrivetRoute/SellerPrivet";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import Payment from "../Components/Dashboard/Payment/Payment";
+import AllBuyer from "../Components/Dashboard/AllBuyer";
 
 export const route = createBrowserRouter([
     {
@@ -106,6 +107,10 @@ export const route = createBrowserRouter([
             {
                 path: '/dashboard/allsaller',
                 element: <AdminRoute><AllSaller></AllSaller></AdminRoute>
+            },
+            {
+                path: '/dashboard/allbuyer',
+                element: <AdminRoute><AllBuyer></AllBuyer></AdminRoute>
             },
             {
                 path: '/dashboard/alluser',
