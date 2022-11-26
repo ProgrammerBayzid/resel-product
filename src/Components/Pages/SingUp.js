@@ -70,7 +70,7 @@ const SingUp = () => {
 
     const saveUser = (displayName, email, designation, photoURL) => {
         const user = { displayName, email, designation, photoURL };
-        fetch('http://localhost:5000/users', {
+        fetch('https://secondhand-phones-clint-server.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

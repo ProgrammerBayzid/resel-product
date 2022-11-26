@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Catagory = () => {
     const [catagoryName, setCatagoryName] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/catagorys')
+        fetch('https://secondhand-phones-clint-server.vercel.app/catagorys')
             .then(res => res.json())
             .then(data => setCatagoryName(data))
     }, [])

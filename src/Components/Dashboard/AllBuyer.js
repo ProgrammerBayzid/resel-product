@@ -16,7 +16,7 @@ const AllBuyer = () => {
     const { data: buyers = [], refetch } = useQuery({
         queryKey: ['buyers'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/allseller?role=Buyer')
+            const res = await fetch('https://secondhand-phones-clint-server.vercel.app/allseller?role=Buyer')
             const data = await res.json();
             return data;
         }
@@ -25,7 +25,7 @@ const AllBuyer = () => {
 
 
     const handleDeleteUser = buyer => {
-        fetch(`http://localhost:5000/user/${buyer._id}`, {
+        fetch(`https://secondhand-phones-clint-server.vercel.app/user/${buyer._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`

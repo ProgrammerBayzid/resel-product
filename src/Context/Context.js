@@ -76,7 +76,7 @@ const Context = ({ children }) => {
 
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             if (currentUser) {
-                fetch(`http://localhost:5000/user?email=${currentUser.email}`)
+                fetch(`https://secondhand-phones-clint-server.vercel.app/user?email=${currentUser.email}`)
                     .then(res => res.json())
                     .then(data => {
                         data.uid = currentUser.uid
@@ -117,7 +117,7 @@ export default Context
 
 //     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
 //         if (currentUser) {
-//             fetch(`http://localhost:5000/user?email=${currentUser.email}`)
+//             fetch(`https://secondhand-phones-clint-server.vercel.app/user?email=${currentUser.email}`)
 //                 .then(res => res.json())
 //                 .then(data => {
 //                     data.uid = currentUser.uid
