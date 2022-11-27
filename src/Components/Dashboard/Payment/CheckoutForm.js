@@ -17,7 +17,7 @@ const CheckoutForm = ({ data }) => {
 
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
-        fetch("https://secondhand-phones-clint-server.vercel.app/create-payment-intent", {
+        fetch("https://phonesserver.vercel.app/create-payment-intent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -92,7 +92,7 @@ const CheckoutForm = ({ data }) => {
                 email,
                 bookingId: _id
             }
-            fetch('https://secondhand-phones-clint-server.vercel.app/payments', {
+            fetch('https://phonesserver.vercel.app/payments', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',

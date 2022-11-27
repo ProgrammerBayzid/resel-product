@@ -17,7 +17,7 @@ const MyOrders = () => {
     const { data: bookings = [], refetch } = useQuery({
         queryKey: ['bookings', user?.email],
         queryFn: async () => {
-            const res = await fetch(`https://secondhand-phones-clint-server.vercel.app/bookings?email=${user?.email}`, {
+            const res = await fetch(`https://phonesserver.vercel.app/bookings?email=${user?.email}`, {
                 headers: {
                     authorization: `bearer ${localStorage.getItem('token')}`
                 }
@@ -27,7 +27,7 @@ const MyOrders = () => {
         }
     });
     const handleDelete = booking => {
-        fetch(`https://secondhand-phones-clint-server.vercel.app/booking/${booking._id}`, {
+        fetch(`https://phonesserver.vercel.app/booking/${booking._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`

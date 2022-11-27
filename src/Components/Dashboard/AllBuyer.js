@@ -13,7 +13,7 @@ const AllBuyer = () => {
     };
 
     useEffect(() => {
-        axios.get('https://secondhand-phones-clint-server.vercel.app/allseller?role=Buyer')
+        axios.get('https://phonesserver.vercel.app/allseller?role=Buyer')
             .then(data => {
                 const byr = data.data;
                 setBuyers(byr)
@@ -25,7 +25,7 @@ const AllBuyer = () => {
 
 
     const handleDeleteUser = buyer => {
-        fetch(`https://secondhand-phones-clint-server.vercel.app/user/${buyer._id}`, {
+        fetch(`https://phonesserver.vercel.app/user/${buyer._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`

@@ -15,7 +15,7 @@ const AllUser = () => {
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch('https://secondhand-phones-clint-server.vercel.app/users')
+            const res = await fetch('https://phonesserver.vercel.app/users')
             const data = await res.json();
             return data;
         }
@@ -25,7 +25,7 @@ const AllUser = () => {
 
 
     const handelMakeAdmin = id => {
-        fetch(`https://secondhand-phones-clint-server.vercel.app/users/admin/${id}`, {
+        fetch(`https://phonesserver.vercel.app/users/admin/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`
@@ -42,7 +42,7 @@ const AllUser = () => {
 
 
     const handleDeleteUser = user => {
-        fetch(`https://secondhand-phones-clint-server.vercel.app/user/${user._id}`, {
+        fetch(`https://phonesserver.vercel.app/user/${user._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('token')}`

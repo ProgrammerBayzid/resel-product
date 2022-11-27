@@ -6,7 +6,7 @@ const useSellar = email => {
 
     useEffect(() => {
         if (email) {
-            fetch(`https://secondhand-phones-clint-server.vercel.app/user/sellar/${email}`)
+            fetch(`https://phonesserver.vercel.app/user/sellar/${email}`)
                 .then(res => res.json())
                 .then(data => {
                     setIsSellar(data.isSellar)

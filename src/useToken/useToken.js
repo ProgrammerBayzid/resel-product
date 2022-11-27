@@ -2,7 +2,7 @@ export const setAuthToken = (user) => {
     const currentUser = {
         email: user.email
     }
-    fetch('https://secondhand-phones-clint-server.vercel.app/jwt', {
+    fetch('https://phonesserver.vercel.app/jwt', {
         method: "POST",
         headers: {
             "content-type": "application/json"

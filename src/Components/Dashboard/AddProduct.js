@@ -51,7 +51,7 @@ const AddProduct = () => {
                     }
 
                     // save product information to the database
-                    fetch('https://secondhand-phones-clint-server.vercel.app/products', {
+                    fetch('https://phonesserver.vercel.app/products', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

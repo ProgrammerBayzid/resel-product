@@ -27,7 +27,7 @@ const BookingModal = ({ productName, setProductName }) => {
             number,
             meetLocation,
         }
-        fetch('https://secondhand-phones-clint-server.vercel.app/bookings', {
+        fetch('https://phonesserver.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

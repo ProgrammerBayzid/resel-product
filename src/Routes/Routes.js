@@ -73,7 +73,7 @@ export const route = createBrowserRouter([
             {
                 path: '/catagory/Products/:name',
                 element: <Products></Products>,
-                loader: ({ params }) => fetch(`https://secondhand-phones-clint-server.vercel.app/catagory/Products/${params.name}`)
+                loader: ({ params }) => fetch(`https://phonesserver.vercel.app/catagory/Products/${params.name}`)
             },
 
         ]
@@ -96,7 +96,7 @@ export const route = createBrowserRouter([
             {
                 path: '/dashboard/payment/:paymentId',
                 element: <Payment></Payment>,
-                loader: ({ params }) => fetch(`https://secondhand-phones-clint-server.vercel.app/paybooking/${params.paymentId}`)
+                loader: ({ params }) => fetch(`https://phonesserver.vercel.app/paybooking/${params.paymentId}`)
             },
             {
                 path: '/dashboard/myproducts',

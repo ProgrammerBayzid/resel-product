@@ -14,6 +14,7 @@ export const AuthContext = createContext()
 const Context = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loding, setLoding] = useState(true)
+    const [render, setRender] = useState(false)
 
 
     // 1. createUser
@@ -67,12 +68,15 @@ const Context = ({ children }) => {
     useEffect(() => {
 
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser)
+            console.log(currentUser);
             if (currentUser) {
-                fetch(`https://secondhand-phones-clint-server.vercel.app/user?email=${currentUser.email}`)
+                fetch(`https://phonesserver.vercel.app/user?email=${currentUser.email}`)
                     .then(res => res.json())
                     .then(data => {
                         data.uid = currentUser.uid
                         setUser(data)
+
                         setLoding(false);
                     })
             }
@@ -82,11 +86,11 @@ const Context = ({ children }) => {
             }
         })
         return () => unSubscribe();
-    }, [])
+    }, [render])
 
 
 
-    const authInfo = { user, loding, createUser, githubSingIn, updateName, verifyEmail, login, googleSignin, logOut, forgetPassword, setLoding }
+    const authInfo = { user, loding, createUser, githubSingIn, updateName, verifyEmail, login, googleSignin, logOut, forgetPassword, setLoding, setUser, setRender }
 
     return (
         <AuthContext.Provider value={authInfo}>

@@ -9,7 +9,7 @@ import Google from './SocialLogin.js/Google';
 
 const SingUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { createUser, updateName, setLoding } = useContext(AuthContext);
+    const { createUser, updateName, setRender, setUser } = useContext(AuthContext);
     const [signUpError, setSignUPError] = useState('');
 
     const navigate = useNavigate()
@@ -61,7 +61,7 @@ const SingUp = () => {
 
     const saveUser = (displayName, email, designation, photoURL) => {
         const user = { displayName, email, designation, photoURL };
-        fetch('https://secondhand-phones-clint-server.vercel.app/users', {
+        fetch('https://phonesserver.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -71,7 +71,10 @@ const SingUp = () => {
             .then(res => res.json())
             .then(data => {
                 setAuthToken(email)
+                setUser(pred => ({ ...pred, ...user }))
+                setRender(prev => !prev)
                 navigate('/');
+
             })
     };
 
