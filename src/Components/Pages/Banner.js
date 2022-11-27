@@ -1,40 +1,38 @@
 import React from 'react'
+import img1 from '../../assets/images/Banner1.png'
+import img2 from '../../assets/images/Banner2.png'
+import img3 from '../../assets/images/Banner3.png'
 
-import banner1 from '../../assets/images/_Banner1.png'
-// import banner2 from '../../assets/images/_Banner2.png'
-// import banner3 from '../../assets/images/_Banner3.png'
 import BannerItem from './BannerItem'
-
-
-
 
 const bannerData = [
     {
-        image: banner1,
+        image: img1,
         prev: 3,
         id: 1,
         next: 2
     },
-    // {
-    //     image: banner2,
-    //     prev: 1,
-    //     id: 2,
-    //     next: 3
-    // },
-    // {
-    //     image: banner3,
-    //     prev: 2,
-    //     id: 3,
-    //     next: 1
-    // },
+    {
+        image: img2,
+        prev: 1,
+        id: 2,
+        next: 3
+    },
+    {
+        image: img3,
+        prev: 2,
+        id: 3,
+        next: 1
+    },
 ]
+
+
 
 const Banner = () => {
 
 
     return (
-        <div>
-
+        <div className="carousel w-full py-10">
             {
                 bannerData.map(banner =>
                     <BannerItem
@@ -42,9 +40,6 @@ const Banner = () => {
                         banner={banner}
                     ></BannerItem>)
             }
-
-
-
         </div>
     )
 }

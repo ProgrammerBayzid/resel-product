@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 import DeleteConfirmModal from './DeleteConfirmModal';
+import { GoVerified } from 'react-icons/go'
 
 const AllSaller = () => {
 
@@ -54,7 +55,7 @@ const AllSaller = () => {
             .then(data => {
                 if (data.deletedCount > 0) {
                     refetch();
-                    toast.success(` ${seller.name} deleted successfully`)
+                    toast.success(` ${seller.displayName} deleted successfully`)
                 }
             })
     };
@@ -71,7 +72,7 @@ const AllSaller = () => {
                             <th></th>
                             <th>User Name</th>
                             <th>User Email</th>
-                            <th>Admin</th>
+                            <th>Make Verifiy</th>
                             <th>Designation</th>
                             <th>Action</th>
                         </tr>
@@ -81,9 +82,13 @@ const AllSaller = () => {
                         {
                             sellers.map((seller, i) => <tr key={seller._id}>
                                 <th>{i + 1}</th>
-                                <td>{seller.name}</td>
+                                <td>{seller.displayName}</td>
                                 <td>{seller.email}</td>
-                                <td>{seller?.verified !== true && <button onClick={() => handelMakeVerifide(seller._id)} className='btn btn-xs btn-primary'>Make Verify</button>}</td>
+                                <td>{seller?.verified !== true ?
+                                    <button onClick={() => handelMakeVerifide(seller._id)} className='btn btn-xs bg-indigo-500 text-white '>Make Verify</button>
+                                    :
+                                    <span className='text-blue-500'><GoVerified></GoVerified></span>
+                                }</td>
                                 <td>{seller?.designation}</td>
                                 <td>
                                     <label onClick={() => setDeletingSeller(seller)} htmlFor="confirmation-modal" className="btn btn-sm btn-error">Delete</label>
@@ -98,7 +103,7 @@ const AllSaller = () => {
 
                 <DeleteConfirmModal
                     title={`Are you sure you want to delete?`}
-                    message={`If you delete ${deletingSeller.DisplayName}. It cannot be undone.`}
+                    message={`If you delete ${deletingSeller.displayName}. It cannot be undone.`}
                     successAction={handleDeleteUser}
                     successButtonName="Delete"
                     modalData={deletingSeller}

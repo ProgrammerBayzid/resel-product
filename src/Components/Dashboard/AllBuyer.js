@@ -1,26 +1,26 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify';
 import DeleteConfirmModal from './DeleteConfirmModal';
-
+import axios from 'axios'
 const AllBuyer = () => {
 
     const [deletingBuyer, setDeletingBuyer] = useState(null);
+    const [buyers, setBuyers] = useState([]);
 
     const closeModal = () => {
         setDeletingBuyer(null);
     };
 
+    useEffect(() => {
+        axios.get('https://secondhand-phones-clint-server.vercel.app/allseller?role=Buyer')
+            .then(data => {
+                const byr = data.data;
+                setBuyers(byr)
+            })
+    }, [])
 
 
-    const { data: buyers = [], refetch } = useQuery({
-        queryKey: ['buyers'],
-        queryFn: async () => {
-            const res = await fetch('https://secondhand-phones-clint-server.vercel.app/allseller?role=Buyer')
-            const data = await res.json();
-            return data;
-        }
-    });
 
 
 
@@ -34,8 +34,7 @@ const AllBuyer = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.deletedCount > 0) {
-                    refetch();
-                    toast.success(` ${buyer.name} deleted successfully`)
+                    toast.success(` ${buyer.displayName} deleted successfully`)
                 }
             })
     };
@@ -54,7 +53,7 @@ const AllBuyer = () => {
                             <th></th>
                             <th>User Name</th>
                             <th>User Email</th>
-                            <th>Admin</th>
+
                             <th>Designation</th>
                             <th>Action</th>
                         </tr>
@@ -64,7 +63,7 @@ const AllBuyer = () => {
                         {
                             buyers.map((buyer, i) => <tr key={buyer._id}>
                                 <th>{i + 1}</th>
-                                <td>{buyer.name}</td>
+                                <td>{buyer.displayName}</td>
                                 <td>{buyer.email}</td>
                                 <td>{buyer?.designation}</td>
                                 <td>
@@ -80,7 +79,7 @@ const AllBuyer = () => {
 
                 <DeleteConfirmModal
                     title={`Are you sure you want to delete?`}
-                    message={`If you delete ${deletingBuyer.DisplayName}. It cannot be undone.`}
+                    message={`If you delete ${deletingBuyer.displayName}. It cannot be undone.`}
                     successAction={handleDeleteUser}
                     successButtonName="Delete"
                     modalData={deletingBuyer}

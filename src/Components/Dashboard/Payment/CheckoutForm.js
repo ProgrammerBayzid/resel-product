@@ -1,6 +1,7 @@
 import React from 'react'
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import { useEffect, useState } from 'react'
+import { toast } from 'react-toastify';
 const CheckoutForm = ({ data }) => {
 
     const stripe = useStripe();
@@ -25,7 +26,11 @@ const CheckoutForm = ({ data }) => {
             body: JSON.stringify({ price }),
         })
             .then((res) => res.json())
-            .then((data) => setClientSecret(data.clientSecret));
+            .then((data) => {
+
+                setClientSecret(data.clientSecret);
+
+            });
     }, [price]);
 
 
@@ -99,6 +104,7 @@ const CheckoutForm = ({ data }) => {
                 .then(data => {
                     console.log(data);
                     if (data.insertedId) {
+                        toast.success('Payment Success')
                         setSuccess('Congrats! your payment completed');
                         setTransactionId(paymentIntent.id);
                     }

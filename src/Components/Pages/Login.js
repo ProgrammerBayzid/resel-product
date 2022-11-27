@@ -82,7 +82,7 @@ const Login = () => {
                     <input className='btn bg-indigo-500 text-white w-full' value="Login" type="submit" />
 
                 </form>
-                <p>New to Doctors Portal <Link className='text-secondary' to="/singUp">Create new Account</Link></p>
+                <p>New to Recondition Phones <Link className='text-secondary' to="/singUp">Create new Account</Link></p>
                 <div className="divider">OR</div>
                 <Google></Google>
 
