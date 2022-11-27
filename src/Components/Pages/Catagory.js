@@ -17,13 +17,19 @@ const Catagory = () => {
             <div className='grid lg:grid-cols-3 mx-auto lg:ml-20 sm:ml-32 gap-5'>
                 {
                     catagoryName.map(catagory =>
+                        <div className="card w-96 bg-base-100 shadow-xl">
+                            <figure className="px-10 pt-10">
+                                <img src={catagory.img} alt="Shoes" className="rounded-xl" />
+                            </figure>
+                            <div className="card-body items-center text-center">
+                                <h2 className="card-title">Brand Name: {catagory.name}</h2>
+                                <div className="card-actions">
+                                    <Link to={`/catagory/Products/${catagory.name}`}><button className="btn btn-primary">See All Phones Of This Brand</button></Link>
 
-                        <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md">
-                            <h1 className='text-center text-xl font-bold'>Brand Name: {catagory.name}</h1>
-                            <div className='mt-5  grid justify-items-center'>
-                                <Link to={`/catagory/Products/${catagory.name}`}>  <button className="btn bg-indigo-500 text-white">See All Phones Of This Brand</button></Link>
+                                </div>
                             </div>
                         </div>
+
 
 
                     )

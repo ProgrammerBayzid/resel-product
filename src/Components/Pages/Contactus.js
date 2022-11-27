@@ -3,7 +3,7 @@ import React from 'react'
 const Contactus = () => {
     return (
         <section>
-            <div className='bg-blue-200	rounded mt-16 p-5'>
+            <div className='bg-blue-200	rounded mt-32 py-16'>
                 <div>
                     <h4 className='text-xl text-black font-bold text-center'> Contact Us</h4>
                     <h1 className='text-4xl text-center text-black'>Stay connected with us</h1>

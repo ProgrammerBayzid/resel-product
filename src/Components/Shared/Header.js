@@ -52,7 +52,7 @@ const Header = () => {
 
 
     return (
-        <div className='mb-12 mt-3'>
+        <div className='mb-12 mt-3 shadow-sm sticky top-0 z-40'>
 
             <div className="navbar bg-indigo-500 flex flex justify-between rounded-xl">
                 <div className="navbar-start">
