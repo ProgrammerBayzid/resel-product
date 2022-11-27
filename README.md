@@ -2,10 +2,11 @@
 
 ### `Live Site`
 
-Open [https://photography-22902.web.app/](https://photography-22902.web.app/) to view it in your browser.
+Open [https://phones-9c9a0.web.app/](https://phones-9c9a0.web.app/) to view it in your browser.
 
 
-
+Admin Email: nishat@gmail.com
+Admin Passwprd: 1@345A
 
 
 
