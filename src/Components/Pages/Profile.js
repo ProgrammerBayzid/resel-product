@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/Context'
 import { GoVerified } from 'react-icons/go'
-
+import { CiCircleRemove } from 'react-icons/ci'
 const Profile = () => {
     const { user, logOut } = useContext(AuthContext);
     const navigate = useNavigate()
@@ -30,8 +30,18 @@ const Profile = () => {
                     </span>
                 </div>
                 <div>
-                    <h1 className="text-3xl font-bold sm:text-center mb-2 flex items-center gap-5">Name: {user?.displayName ? user.displayName : 'Name Not Found'}{user?.verified && <span><GoVerified></GoVerified></span>}
-                    </h1>
+                    <h1 className="text-3xl font-bold sm:text-center mb-2 ">Name: {user?.displayName ? user.displayName : 'Name Not Found'}</h1>
+                    <p className='text-center mb-2 text-xl'>Designation: {user?.designation}</p>
+
+                    <p className='flex justify-center '>
+
+                        {
+                            user?.verified ? <p className='flex gap-2 items-center text-xl'>Sellser Status: <GoVerified className='text-blue-500'></GoVerified></p>
+                                :
+                                <p className='flex gap-2 items-center text-xl' >Sellser Status: <CiCircleRemove className='text-red-500 font-bold'></CiCircleRemove></p>
+                        }
+                    </p>
+
                     <p className='text-center mb-2 text-xl'>Email: {user?.email}</p>
                     <p className='text-center mb-2 text-xl'>ID: {user?.uid} </p>
                     <p className='text-center text-xl'> Email Status: {user?.emailVerified ? <span className=''>Verified</span> : <span className=''>Not Verified</span>} </p>

@@ -9,7 +9,7 @@ import Google from './SocialLogin.js/Google';
 
 const SingUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { createUser, updateName, verifyEmail } = useContext(AuthContext);
+    const { createUser, updateName, setLoding } = useContext(AuthContext);
     const [signUpError, setSignUPError] = useState('');
 
     const navigate = useNavigate()
@@ -18,16 +18,17 @@ const SingUp = () => {
     const handleSignUp = (data) => {
         const photoURL = data.photoURL[0];
         const formData = new FormData();
-        formData.append('photoURL', photoURL);
-        const url = 'https://api.imgbb.com/1/upload?key=0b3b07ced3b8cca094271a552e8192ff'
+        formData.append('image', photoURL);
+        const url = 'https://api.imgbb.com/1/upload?key=56b634afb1bea6129ca7b774d0d3db94'
         fetch(url, {
             method: 'POST',
             body: formData
         })
             .then(res => res.json())
             .then(imageData => {
+                console.log(imageData);
                 setSignUPError('');
-                createUser(data.email, data.password, data.designation,)
+                createUser(data.email, data.password, data.designation)
                     .then(result => {
                         const user = result.user;
                         toast.success('User Created Successfully.')
@@ -37,12 +38,11 @@ const SingUp = () => {
                         }
                         updateName(userInfo)
                             .then(() => {
-                                saveUser(data.displayName, data.email, data.designation, imageData.data.photoURL.url)
+                                saveUser(data.displayName, data.email, data.designation, imageData.data.url)
                             })
                             .catch((error) => {
                                 toast.error(error.massage)
                             });
-                        // handelEmailVeryfi()
                     })
                     .catch(error => {
                         console.log(error)
@@ -52,21 +52,12 @@ const SingUp = () => {
 
             .catch(error => {
                 console.log(error)
-
             });
     };
 
 
 
-    // const handelEmailVeryfi = () => {
-    //     verifyEmail()
-    //         .then(() => {
-    //             toast.success('Verify Your Email')
-    //         })
-    //         .catch(error => {
-    //             toast.error(error.massage)
-    //         })
-    // };
+
 
     const saveUser = (displayName, email, designation, photoURL) => {
         const user = { displayName, email, designation, photoURL };

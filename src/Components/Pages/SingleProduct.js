@@ -22,6 +22,7 @@ const SingleProduct = ({ product, setProductName }) => {
 
     } = product;
     return (
+
         <div>
             <div className="card card-compact w-96  bg-base-100 shadow-xl p-5">
                 <div className='flex justify-between mb-2'>
@@ -45,7 +46,7 @@ const SingleProduct = ({ product, setProductName }) => {
                         </span>
                     </div>
                 </div>
-                <figure><img className='w-full' src={image} alt="Shoes" /></figure>
+                <figure><img className='h-56 w-full' src={image} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">Name: {phoneName}</h2>
                     <h1 className='text-lg'> Resale-price: {resalePrice} tk</h1>
@@ -64,6 +65,7 @@ const SingleProduct = ({ product, setProductName }) => {
                             className="btn bg-indigo-500 text-white"
                         >Buy Now
                         </label>
+
                     </div>
                 </div>
             </div>
@@ -71,6 +73,7 @@ const SingleProduct = ({ product, setProductName }) => {
 
 
         </div >
+
     )
 }
 

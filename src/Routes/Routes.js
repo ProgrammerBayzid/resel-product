@@ -21,6 +21,7 @@ import SellerPrivet from "../PrivetRoute/SellerPrivet";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import Payment from "../Components/Dashboard/Payment/Payment";
 import AllBuyer from "../Components/Dashboard/AllBuyer";
+import BookingModal from "../Components/Pages/BookingModal";
 
 export const route = createBrowserRouter([
     {
@@ -68,9 +69,10 @@ export const route = createBrowserRouter([
                 element: <Profile></Profile>
 
             },
+
             {
                 path: '/catagory/Products/:name',
-                element: <PrivetRoute><Products></Products></PrivetRoute>,
+                element: <Products></Products>,
                 loader: ({ params }) => fetch(`https://secondhand-phones-clint-server.vercel.app/catagory/Products/${params.name}`)
             },
 

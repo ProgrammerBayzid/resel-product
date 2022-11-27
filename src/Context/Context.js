@@ -18,7 +18,7 @@ const Context = ({ children }) => {
 
     // 1. createUser
     const createUser = (email, password) => {
-        setLoding(true);
+        setLoding(false);
         return createUserWithEmailAndPassword(auth, email, password)
     }
     // 2. ubdate name 
@@ -62,14 +62,6 @@ const Context = ({ children }) => {
     }
 
 
-    // useEffect(() => {
-
-    //     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-    //         setUser(currentUser)
-    //         setLoding(false);
-    //     })
-    //     return () => unSubscribe()
-    // }, [])
 
 
     useEffect(() => {
@@ -94,7 +86,7 @@ const Context = ({ children }) => {
 
 
 
-    const authInfo = { user, loding, createUser, githubSingIn, updateName, verifyEmail, login, googleSignin, logOut, forgetPassword }
+    const authInfo = { user, loding, createUser, githubSingIn, updateName, verifyEmail, login, googleSignin, logOut, forgetPassword, setLoding }
 
     return (
         <AuthContext.Provider value={authInfo}>
@@ -113,18 +105,3 @@ export default Context
 
 
 
-// useEffect(() => {
-
-//     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-//         if (currentUser) {
-//             fetch(`https://secondhand-phones-clint-server.vercel.app/user?email=${currentUser.email}`)
-//                 .then(res => res.json())
-//                 .then(data => {
-//                     data.uid = currentUser.uid
-//                     setUser(data)
-//                 })
-//         }
-//         setLoding(false);
-//     })
-//     return () => unSubscribe()
-// }, [])
