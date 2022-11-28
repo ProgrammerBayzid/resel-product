@@ -1,11 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { toast } from 'react-toastify';
 import DeleteConfirmModal from './DeleteConfirmModal';
 import { GoVerified } from 'react-icons/go'
 
 const AllSaller = () => {
-
 
     const [deletingSeller, setDeletingSeller] = useState(null);
 

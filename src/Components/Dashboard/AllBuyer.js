@@ -1,8 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { toast } from 'react-toastify';
 import DeleteConfirmModal from './DeleteConfirmModal';
 import axios from 'axios'
+import { AuthContext } from '../../Context/Context';
+import Spinner from '../Pages/Spinner';
 const AllBuyer = () => {
 
     const [deletingBuyer, setDeletingBuyer] = useState(null);

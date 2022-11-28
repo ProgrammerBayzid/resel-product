@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { FaStar } from 'react-icons/fa';
 import { GoVerified } from 'react-icons/go'
 import { CiCircleRemove } from 'react-icons/ci'
+import { AuthContext } from '../../Context/Context';
+import { Link } from 'react-router-dom';
+import Spinner from './Spinner';
 
 const SingleProduct = ({ product, setProductName }) => {
+    const { user } = useContext(AuthContext)
     const {
         phoneName,
         location,
@@ -22,7 +26,6 @@ const SingleProduct = ({ product, setProductName }) => {
 
     } = product;
     return (
-
         <div>
             <div className="card card-compact w-96  bg-base-100 shadow-xl p-5">
                 <div className='flex justify-between mb-2'>
@@ -59,12 +62,22 @@ const SingleProduct = ({ product, setProductName }) => {
                     <p className='text-lg'>Number: {number}</p>
                     <p className='flex gap-2 text-lg items-center'><FaStar className='text-yellow-500 ' /> {rating}</p>
                     <div className="card-actions justify-end">
-                        <label
-                            onClick={() => setProductName(product)}
-                            htmlFor="booking-modal"
-                            className="btn bg-indigo-500 text-white"
-                        >Buy Now
-                        </label>
+
+                        {
+                            user?.uid ?
+                                <label
+                                    onClick={() => setProductName(product)}
+                                    htmlFor="booking-modal"
+                                    className="btn bg-indigo-500 text-white"
+                                >Buy Now
+                                </label>
+                                :
+                                <Link to='/login'><button className="btn bg-indigo-500 text-white">Buy Now</button></Link>
+
+
+
+                        }
+
 
                     </div>
                 </div>
@@ -73,8 +86,8 @@ const SingleProduct = ({ product, setProductName }) => {
 
 
         </div >
-
     )
+
 }
 
 export default SingleProduct

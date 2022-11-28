@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Spinner from './Spinner'
 
 const Catagory = () => {
     const [catagoryName, setCatagoryName] = useState([])
+    const [loding, setLoding] = useState(false)
     useEffect(() => {
         fetch('https://phonesserver.vercel.app/catagorys')
             .then(res => res.json())
             .then(data => setCatagoryName(data))
     }, [])
 
+    if (loding) {
+        return <Spinner></Spinner>
+    }
 
     return (
         <div className='mt-16'>
