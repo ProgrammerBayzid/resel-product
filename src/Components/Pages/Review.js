@@ -37,7 +37,7 @@ const Review = () => {
         <section className='mt-16 ml-12'>
             <div className='flex justify-between'>
                 <div>
-                    <h4 className='text-xl text-primary font-bold'> Testimonial</h4>
+                    <h4 className='text-xl text-primary font-bold'> Reviews </h4>
                     <h1 className='text-4xl'>What Our Buyer Says</h1>
                 </div>
                 {/* <figure><img className='w-24 lg:w-48' src={quote} alt="" srcset="" /></figure> */}

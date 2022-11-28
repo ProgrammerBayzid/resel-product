@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify';
+import Spinner from '../Pages/Spinner';
 import DeleteConfirmModal from './DeleteConfirmModal';
 
 const AllUser = () => {
@@ -106,6 +107,7 @@ const AllUser = () => {
                 </DeleteConfirmModal>}
         </div>
     )
+
 }
 
 export default AllUser
