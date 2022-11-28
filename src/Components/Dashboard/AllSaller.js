@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react'
 import { toast } from 'react-toastify';
 import DeleteConfirmModal from './DeleteConfirmModal';
 import { GoVerified } from 'react-icons/go'
+import Spinner from '../Pages/Spinner';
 
 const AllSaller = () => {
 
@@ -14,7 +15,7 @@ const AllSaller = () => {
 
 
 
-    const { data: sellers = [], refetch } = useQuery({
+    const { data: sellers = [], refetch, isLoading } = useQuery({
         queryKey: ['sellers'],
         queryFn: async () => {
             const res = await fetch('https://phonesserver.vercel.app/allseller?role=Seller')
@@ -60,7 +61,9 @@ const AllSaller = () => {
     };
 
 
-
+    if (isLoading) {
+        return <Spinner></Spinner>
+    }
     return (
         <div className='mt-10 w-full'>
             <h1 className='text-3xl font-semibold mb-5'>All Users</h1>

@@ -9,6 +9,8 @@ const AllBuyer = () => {
 
     const [deletingBuyer, setDeletingBuyer] = useState(null);
     const [buyers, setBuyers] = useState([]);
+    const [loding, setLoding] = useState(false);
+
 
     const closeModal = () => {
         setDeletingBuyer(null);
@@ -17,6 +19,7 @@ const AllBuyer = () => {
     useEffect(() => {
         axios.get('https://phonesserver.vercel.app/allseller?role=Buyer')
             .then(data => {
+                setLoding(true)
                 const byr = data.data;
                 setBuyers(byr)
             })
@@ -43,7 +46,9 @@ const AllBuyer = () => {
 
 
 
-
+    if (loding === false) {
+        return <Spinner></Spinner>
+    }
 
     return (
         <div className='mt-10 w-full'>

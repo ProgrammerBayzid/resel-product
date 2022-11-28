@@ -3,10 +3,11 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/Context'
+import Spinner from '../Pages/Spinner';
 import ConfirmationModal from './ConfirmationModal';
 
 const MyOrders = () => {
-    const { user } = useContext(AuthContext)
+    const { user, loding } = useContext(AuthContext)
     const [deletingOrder, setDeletingOrder] = useState(null);
 
     const closeModal = () => {
@@ -14,7 +15,7 @@ const MyOrders = () => {
     };
 
 
-    const { data: bookings = [], refetch } = useQuery({
+    const { data: bookings = [], refetch, isLoading } = useQuery({
         queryKey: ['bookings', user?.email],
         queryFn: async () => {
             const res = await fetch(`https://phonesserver.vercel.app/bookings?email=${user?.email}`, {
@@ -42,7 +43,9 @@ const MyOrders = () => {
             })
     };
 
-
+    if (isLoading) {
+        return <Spinner></Spinner>
+    }
 
     return (
         <div className='mt-10 w-full'>

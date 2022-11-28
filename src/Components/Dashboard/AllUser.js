@@ -13,7 +13,7 @@ const AllUser = () => {
 
 
 
-    const { data: users = [], refetch } = useQuery({
+    const { data: users = [], refetch, isLoading } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await fetch('https://phonesserver.vercel.app/users')
@@ -58,7 +58,9 @@ const AllUser = () => {
             })
     };
 
-
+    if (isLoading) {
+        return <Spinner></Spinner>
+    }
     return (
         <div className='mt-10 w-full'>
             <h1 className='text-3xl font-semibold mb-5'>All Users</h1>
